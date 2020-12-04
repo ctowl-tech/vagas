@@ -1,6 +1,6 @@
 # Ctowl Teste Front-end
 
-Antes de começar, leia os nossos [key values](https://www.github.com/ctowl-tech/hiring/key-values.md) para entender um pouco sobre o que nós priorizamos no desenvolvimento e **faça o seu melhor, pois iremos avaliar o teste como se fosse seu melhor esforço** ;)
+Antes de começar, leia os nossos [key values](https://github.com/ctowl-tech/hiring/blob/main/key-values.md) para entender um pouco sobre o que nós priorizamos no desenvolvimento e **faça o seu melhor, pois iremos avaliar o teste como se fosse seu melhor esforço** ;)
 
 Envie o resultado do seu desafio para contato@ctowl.com.br (ele pode ser open source!).
 Se possível, faça deploy da sua aplicação em algum serviço como [Netlify](https://www.netlify.com/), [Heroku](https://heroku.com/) ou qualquer outro de sua preferência.
