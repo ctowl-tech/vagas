@@ -41,29 +41,29 @@ Sua performance será avaliada com base nos seguintes pontos:
 10. Quão inteligível é seu código para um desenvolvedor menos experiente ? (não se esqueça que esse é um dos nossos principais valores)
 11. Quão reaproveitável é seu código para outros contextos ? (pense nas demais aplicações e abstrações de uso)
 
+
 ## O Teste
-
-PROBLEMATICA
-
-- WEBRTC
-- BLOCKCHAIN
-- TREINAMENTO
+Você vai precisar criar uma carteira de tokens através de um SmartContract que temos na publicado na blockchain "sokol.poa.network.com".
+Sugerimos a utilização do EthersJS para comunicação com nosso contrato. 
+Abaixo seguem os dados do contrato para conexão:
+``` 
+const tokenAddress = '';
+```
 
 ## Requisitos
 
 - Use componentização.
-- Os períodos de recebimento devem ser configuráveis já que a API pode receber uma lista de periódos para realizar os cálculos.
 - Faça testes unitários e/ou de ponta-a-ponta (end-to-end)
+- A wallet deve ser gerada a partir de palavras mnemonicas randomicas.
+- Você deve pensar em alguma forma de lidar com os dados sensíveis da carteira no front-end para que o usuário possa assinar transações a partir delas.
+- As mnemonic words são totalmente sensíveis. Quem as possuir tem total controle da carteira gerada, então lembre-se de minimizar os riscos para seu usuário pensando em segurança.
+- O componente deve poder ser instalado e integrado facilmente com qualquer projeto React através do NPM.
+- Use Functional Components ao invés de Classes.
 
 Os possíveis cenários devem ser cobertos e terem soluções implementadas. Não foi desenvolvido layout para isso, pois queremos observar como você lidará com eles:
 
-- Demora de respostas da API
-- Timeout da API
-- Conexão lenta
-- Usuário estar offline
-
 ## Front
-O layout proposto para essa calculadora pode ser visto no link abaixo.
+O layout proposto para esse componente pode ser visto no link abaixo.
 
 [Link para o layout]() - **Lembrando que a sua aplicação deve seguir o layout pixel by pixel**
 
