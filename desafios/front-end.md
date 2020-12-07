@@ -43,15 +43,14 @@ Sua performance será avaliada com base nos seguintes pontos:
 
 
 ## O Teste
-Você vai precisar criar uma carteira de tokens através de um SmartContract que temos na publicado na blockchain "sokol.poa.network.com".
-Sugerimos a utilização do EthersJS para comunicação com nosso contrato. 
-Abaixo seguem os dados do contrato para conexão:
+Você vai precisar criar uma carteira de tokens através de um SmartContract que temos na publicado na blockchain "https://sokol.poa.network".
+Sugerimos a utilização do [EthersJS](https://docs.ethers.io/v5/) para comunicação com nosso contrato. 
+Abaixo segue o endereço do nosso smart contract para conexão:
 ``` 
-const tokenAddress = '';
+const tokenAddress = '0x4915476A7dE2dD521fA379604174307C79c71DFf';
 ```
 
 ## Requisitos
-
 - Use componentização.
 - Faça testes unitários e/ou de ponta-a-ponta (end-to-end)
 - A wallet deve ser gerada a partir de palavras mnemonicas randomicas.
@@ -59,6 +58,8 @@ const tokenAddress = '';
 - As mnemonic words são totalmente sensíveis. Quem as possuir tem total controle da carteira gerada, então lembre-se de minimizar os riscos para seu usuário pensando em segurança.
 - O componente deve poder ser instalado e integrado facilmente com qualquer projeto React através do NPM.
 - Use Functional Components ao invés de Classes.
+- Encontre uma forma segura de salvar os dados sensiveis da carteira e acessalas quando necessário.
+- Dê suporte a multiplos usuários na mesma máquina.
 
 Os possíveis cenários devem ser cobertos e terem soluções implementadas. Não foi desenvolvido layout para isso, pois queremos observar como você lidará com eles:
 
@@ -67,59 +68,3 @@ O layout proposto para esse componente pode ser visto no link abaixo.
 
 [Link para o layout]() - **Lembrando que a sua aplicação deve seguir o layout pixel by pixel**
 
-## API
-
-Você consumirá uma API já existente no endereço abaixo. Em seguida há uma especificação simplificada dela.
-
-`https://ctowl-hiring.herokuapp.com/`
-
-### Post
-
-| Parâmetro    | Obrigatório? | Tipo          | Descrição                                                                              |
-|--------------|----------|---------------|----------------------------------------------------------------------------------------|
-| `amount`       | Sim      | `number`        | Valor total da transação em centavos                                                   |
-| `installments` | Sim      | `number`        | Número de parcelas                                                                     |
-| `mdr`          | Sim      | `number`        | É a taxa cobrada pelas adquirentes sobre cada transação de cartão de crédito ou débito |
-| `days`         | Não      | `Array<number>` | Uma lista com os dias a serem calculadas as antecipações                               |
-
-### Exemplo
-
-```bash
-$ curl --request POST \
-  --url https://ctowl-hiring.herokuapp.com/ \
-  --header 'content-type: application/json' \
-  --data '{
-	"amount": 15000,
-	"installments": 3,
-	"mdr": 4
-}'
-
-{"1":13267,"15":13536,"30":13824,"90":14400}
-```
-
-### Exemplo informando períodos
-
-```bash
-$ curl --request POST \
-  --url https://ctowl-hiring.herokuapp.com/ \
-  --header 'content-type: application/json' \
-  --data '{
-	"amount": 15000,
-	"installments": 3,
-	"mdr": 4,
-	"days": [30, 60, 90]
-}'
-
-{"30":13824,"60":14208,"90":14400}
-```
-
-### Simulando Timeout, Internal Server Error e Delay de resposta
-
-Para **Timeout** basta executar a request post passando `timeout` através da query string, exemplo:
-`https://ctowl-hiring.herokuapp.com/?timeout`
-
-Para **Internal Server Error** basta executar a request post passando `internalError` através da query string, exemplo:
-`https://ctowl-hiring.herokuapp.com/?internalError`
-
-Para **Delay de resposta**, que pode ser usado como simulador de conexão lenta, basta executar a request post passando `delay`, e informando o tempo do delay em milissegundos, exemplo:
-`https://ctowl-hiring.herokuapp.com/?delay=tempoEmMilissegundos`
