@@ -43,9 +43,10 @@ Sua performance será avaliada com base nos seguintes pontos:
 
 
 ## O Teste
-Você vai precisar criar uma carteira de tokens através de um SmartContract que temos na publicado na blockchain "https://sokol.poa.network".
-Sugerimos a utilização do [EthersJS](https://docs.ethers.io/v5/) para comunicação com nosso contrato. 
-Abaixo segue o endereço do nosso smart contract para conexão:
+Você vai precisar criar uma carteira de tokens através de um Smart Contract que temos na publicado na blockchain "https://sokol.poa.network".
+Sugerimos a utilização do [EthersJS](https://docs.ethers.io/v5/) para interação com a blockchain. 
+Abaixo segue o endereço do nosso Smart Contract para conexão:
+
 ``` 
 const tokenAddress = '0x4915476A7dE2dD521fA379604174307C79c71DFf';
 ```
@@ -67,4 +68,8 @@ Os possíveis cenários devem ser cobertos e terem soluções implementadas. Nã
 O layout proposto para esse componente pode ser visto no link abaixo.
 
 [Link para o layout]() - **Lembrando que a sua aplicação deve seguir o layout pixel by pixel**
+
+## Prazo de entrega
+- Sugerimos o prazo de até 30 dias para realização do desafio. Caso não consiga realizar algum dos requisitos, envie-nos mesmo assim que iremos avaliar todos os outros pontos e ficaremos felizes e dar feedbacks e ajudar você no que ficou faltando para que a experiencia seja o mais enriquecedora para ambas as partes, mesmo que por acaso nós não fechemos com você no momento.
+
 
