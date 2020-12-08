@@ -84,7 +84,7 @@ const walletInstance = await newWallet.connect(provider);
 
 ```
 
-### Exemplo informando períodos
+### Exemplo criando usuário
 
 ```bash
 $ curl --request POST \
