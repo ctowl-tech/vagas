@@ -36,7 +36,7 @@ Sua performance será avaliada com base nos seguintes pontos:
 5.  O código está documentado e/ou é de fácil leitura.
 6.  Segue algum guia de estilo de código padronizado.
 7.  Possui um histórico do git (mesmo que breve) com mensagens claras e concisas.
-8.  Quão inteligível e reaproveitavel é seu código ?
+8.  Como lidou com os dados sensíveis do usuário. Quais medidas de segurança foram implementadas?
 
 
 ## O Teste
@@ -46,9 +46,10 @@ Sugerimos a utilização do [EthersJS](https://docs.ethers.io/v5/) para interaç
 ## Requisitos
 
 - Use componentização.
-- Os períodos de recebimento devem ser configuráveis já que a API pode receber uma lista de periódos para realizar os cálculos.
+- Você deve certificar-se que o usuário salvou as palavras mnemonicas. 
 - Faça testes unitários e/ou de ponta-a-ponta (end-to-end)
-- Lide com os dados sensíveis da carteira do usuário para que ele possa assinar futuras transações.
+- Lide com os dados sensíveis da carteira do usuário no localstorage para que ele possa assinar futuras transações.
+- Considere que mais de um usuário poderá ter uma carteira no mesmo aparelho.
 
 
 Os possíveis cenários devem ser cobertos e terem soluções implementadas. Não foi desenvolvido layout para isso, pois queremos observar como você lidará com eles:
@@ -57,10 +58,7 @@ Os possíveis cenários devem ser cobertos e terem soluções implementadas. Nã
 - Usuário estar offline;
 
 ## Front
-O layout proposto para esse componente pode ser visto no link abaixo.
-
-[Link para o layout]() - **Lembrando que a sua aplicação deve seguir o layout pixel by pixel**
-## API
+Você tem total liberdade no layout do componente e suas derivações. Seja criativo e objetivo.
 
 Você consumirá uma API já existente no endereço abaixo. Em seguida há uma especificação simplificada dela.
 
@@ -71,19 +69,18 @@ Você consumirá uma API já existente no endereço abaixo. Em seguida há uma e
 |------------------|--------------|---------------|----------------------------------------------------------------------------------------|
 | `doc`            | Sim          | `string`      | CPF ou CNPJ.                                                                           |
 | `password`       | Sim          | `string`      | Senha do usuário                                                                       |
-| `wallet`         | Sim          | `object`      | Informações da carteira.                                                                |
+| `wallet`         | Sim          | `object`      | Informações públicas da carteira.				                           |
 
 
 
-### Exemplo Conexão com Blockchain usando EthersJS
+### Exemplo Criando uma Wallet usando EthersJS
 
 ```javascript
 import ethers from 'ethers 
 
 const newWallet = await ethers.Wallet.createRandom();
-WALLET = await newWallet.connect(provider);
-
 const provider = new ethers.providers.JsonRpcProvider('https://sokol.poa.network');
+const walletInstance = await newWallet.connect(provider);
 
 ```
 
@@ -94,13 +91,13 @@ $ curl --request POST \
   --url `https://ctowl-hiring.herokuapp.com/users` \
   --header 'content-type: application/json' \
   --data '{
-	"amount": 15000,
-	"installments": 3,
-	"mdr": 4,
-	"days": [30, 60, 90]
+	"name": "user_name",
+	"password": "password",
+	"wallet": {
+	  ...
+	}
 }'
 
-{"30":13824,"60":14208,"90":14400}
 ```
 
 ### Simulando Timeout, Internal Server Error e Delay de resposta
