@@ -62,7 +62,7 @@ Você tem total liberdade no layout do componente e suas derivações. Seja cria
 
 Você consumirá uma API já existente no endereço abaixo. Em seguida há uma especificação simplificada dela.
 
-`https://ctowl-hiring.herokuapp.com/users`
+`https://api-sample-front.herokuapp.com/users`
 
 
 | Parâmetro        | Obrigatório? | Tipo          | Descrição                                                                              |
@@ -88,7 +88,7 @@ const walletInstance = await newWallet.connect(provider);
 
 ```bash
 $ curl --request POST \
-  --url `https://ctowl-hiring.herokuapp.com/users` \
+  --url `https://api-sample-front.herokuapp.com/users` \
   --header 'content-type: application/json' \
   --data '{
 	"name": "user_name",
@@ -103,13 +103,13 @@ $ curl --request POST \
 ### Simulando Timeout, Internal Server Error e Delay de resposta
 
 Para **Timeout** basta executar a request post passando `timeout` através da query string, exemplo:
-`https://ctowl-hiring.herokuapp.com/users?timeout`
+`https://api-sample-front.herokuapp.com/users?timeout`
 
 Para **Internal Server Error** basta executar a request post passando `internalError` através da query string, exemplo:
-`https://ctowl-hiring.herokuapp.com/users?internalError`
+`https://api-sample-front.herokuapp.com/users?internalError`
 
 Para **Delay de resposta**, que pode ser usado como simulador de conexão lenta, basta executar a request post passando `delay`, e informando o tempo do delay em milissegundos, exemplo:
-`https://ctowl-hiring.herokuapp.com/users?delay=tempoEmMilissegundos`
+`https://api-sample-front.herokuapp.com/users?delay=tempoEmMilissegundos`
 
 
 ## Prazo de entrega
