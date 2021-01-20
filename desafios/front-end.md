@@ -76,7 +76,7 @@ Você consumirá uma API já existente no endereço abaixo. Em seguida há uma e
 ### Exemplo Criando uma Wallet usando EthersJS
 
 ```javascript
-import ethers from 'ethers 
+import ethers from 'ethers' 
 
 const newWallet = await ethers.Wallet.createRandom();
 const provider = new ethers.providers.JsonRpcProvider('https://sokol.poa.network');
