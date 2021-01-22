@@ -1,0 +1,193 @@
+openapi: 3.0.2
+info:
+  version: 0.1.0
+  title: API Node
+  description: API Node
+  contact:
+    name: API Support
+    email: maayconaguiar11@hotmail.com
+
+servers:
+  - description: Desenvolvimento
+    url: http://127.0.0.1:3000
+
+tags:
+  - name: User
+    description: Endpoints de usuários
+
+paths:
+  /user:
+    post:
+      tags:
+        - User
+      summary: Cadastra um usuário
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - email
+                - fullName
+              properties:
+                fullName:
+                  type: string
+                  description: nome do usuário
+                  example: "Maycon Aguiar"
+                email:
+                  type: string
+                  description: email do usuário
+                  example: "maayconaguiar11@hotmail.com"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                required:
+                  - key
+                properties:
+                  fullName:
+                    type: string
+                    description: nome do usuário
+                    example: "Maycon Aguiar"
+                  email:
+                    type: string
+                    description: email do usuário
+                    example: "maayconaguiar11@hotmail.com"
+        500:
+          $ref: '#/components/responses/InternalServerError'
+    get:
+      tags:
+        - User
+      summary: Retorna todos os usuários
+      description: Pega todos os usuários
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                required:
+                  - key
+                properties:
+                  fullName:
+                    type: string
+                    description: nome do usuário
+                    example: "Maycon Aguiar"
+                  email:
+                    type: string
+                    description: email do usuário
+                    example: "maayconaguiar11@hotmail.com"
+        500:
+          $ref: '#/components/responses/InternalServerError'
+  /user/{id}:
+    put:
+      tags:
+        - User
+      summary: Atualiza um usuário
+      parameters:
+      - name: "id"
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "eb0a2f54-d5da-4fc6-8abd-aa73d2dcccee"
+          description: "Path params"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: nome do usuário
+                  example: "Maycon"
+                email:
+                  type: string
+                  description: email do usuário
+                  example: "maayconaguiar11@hotmail.com"
+                username:
+                  type: string
+                  description: username do usuário
+                  example: "omaycon"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                required:
+                  - key
+                properties:
+                  id:
+                    type: string
+                    example: "1"
+        500:
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - User
+      summary: Delete um usuário
+      parameters:
+      - name: "id"
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "eb0a2f54-d5da-4fc6-8abd-aa73d2dcccee"
+          description: "Path params"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                required:
+                  - key
+                properties:
+                  id:
+                    type: string
+                    example: "1"
+        500:
+          $ref: '#/components/responses/InternalServerError'
+components:
+  responses:
+    OutOfCuttingTimeError:
+      description: Serviço indisponível
+      content:
+        'application/json':
+          schema:
+            properties:
+              code:
+                description: Código do erro
+                type: string
+                example: 'OUT_OF_CUTTING_TIME'
+              message:
+                description: Mensagem de erro
+                type: string
+                example: 'Service is out of cutting time'
+
+    InternalServerError:
+      description: Erro interno do servidor
+      content:
+        application/json:
+          schema:
+            properties:
+              code:
+                description: Código do erro
+                type: string
+                example: 'INTERNAL_SERVER_ERROR'
+              details:
+                description: Detalhes do erro
+                type: array
+                example:
+    Success:
+      description: Successo
+      content:
+        application/json:
+          schema:
+            properties:
+              message:
+                description: Sucesso
+                type: integer
+                example: [1]
