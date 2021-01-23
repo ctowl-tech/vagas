@@ -62,7 +62,11 @@ Você tem total liberdade no layout do componente e suas derivações. Seja cria
 
 Você consumirá uma API já existente no endereço abaixo. Em seguida há uma especificação simplificada dela.
 
+<<<<<<< HEAD
 `https://api-sample-front.herokuapp.com/users`
+=======
+`https://ctowl-hiring.herokuapp.com/users`
+>>>>>>> b29db74026ae596123353a79cfb1c02075ec4caf
 
 
 | Parâmetro        | Obrigatório? | Tipo          | Descrição                                                                              |
@@ -76,7 +80,11 @@ Você consumirá uma API já existente no endereço abaixo. Em seguida há uma e
 ### Exemplo Criando uma Wallet usando EthersJS
 
 ```javascript
+<<<<<<< HEAD
 import ethers from 'ethers' 
+=======
+import ethers from 'ethers 
+>>>>>>> b29db74026ae596123353a79cfb1c02075ec4caf
 
 const newWallet = await ethers.Wallet.createRandom();
 const provider = new ethers.providers.JsonRpcProvider('https://sokol.poa.network');
@@ -88,7 +96,11 @@ const walletInstance = await newWallet.connect(provider);
 
 ```bash
 $ curl --request POST \
+<<<<<<< HEAD
   --url `https://api-sample-front.herokuapp.com/users` \
+=======
+  --url `https://ctowl-hiring.herokuapp.com/users` \
+>>>>>>> b29db74026ae596123353a79cfb1c02075ec4caf
   --header 'content-type: application/json' \
   --data '{
 	"name": "user_name",
@@ -103,6 +115,7 @@ $ curl --request POST \
 ### Simulando Timeout, Internal Server Error e Delay de resposta
 
 Para **Timeout** basta executar a request post passando `timeout` através da query string, exemplo:
+<<<<<<< HEAD
 `https://api-sample-front.herokuapp.com/users?timeout`
 
 Para **Internal Server Error** basta executar a request post passando `internalError` através da query string, exemplo:
@@ -110,6 +123,15 @@ Para **Internal Server Error** basta executar a request post passando `internalE
 
 Para **Delay de resposta**, que pode ser usado como simulador de conexão lenta, basta executar a request post passando `delay`, e informando o tempo do delay em milissegundos, exemplo:
 `https://api-sample-front.herokuapp.com/users?delay=tempoEmMilissegundos`
+=======
+`https://ctowl-hiring.herokuapp.com/users?timeout`
+
+Para **Internal Server Error** basta executar a request post passando `internalError` através da query string, exemplo:
+`https://ctowl-hiring.herokuapp.com/users?internalError`
+
+Para **Delay de resposta**, que pode ser usado como simulador de conexão lenta, basta executar a request post passando `delay`, e informando o tempo do delay em milissegundos, exemplo:
+`https://ctowl-hiring.herokuapp.com/users?delay=tempoEmMilissegundos`
+>>>>>>> b29db74026ae596123353a79cfb1c02075ec4caf
 
 
 ## Prazo de entrega

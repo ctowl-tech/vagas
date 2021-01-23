@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ctowl Teste Back-end
 
 Antes de começar, leia os [nossos-valores.md](https://github.com/ctowl-tech/hiring/blob/main/nossos-valores.md) para entender um pouco sobre o que nós priorizamos no desenvolvimento e **faça o seu melhor, pois iremos avaliar o teste como se fosse seu melhor esforço** ;)
@@ -59,4 +60,6 @@ Te aguardamos!
 
 
 
+=======
+>>>>>>> b29db74026ae596123353a79cfb1c02075ec4caf
 
