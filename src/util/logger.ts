@@ -4,6 +4,6 @@ export const {
   ExpressLogger,
   Logger,
 } = init({
-  PROJECT_NAME: 'wallet-manager',
+  PROJECT_NAME: 'node',
   LOG_LEVEL: process.env.NODE_ENV === 'test' ? 'fatal' : 'debug',
 });
