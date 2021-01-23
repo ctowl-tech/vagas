@@ -2,7 +2,7 @@ import {
   User,
 } from '../../../../types/user';
 
-import { createUser } from '../user';
+import { createUser, update } from '../user';
 import { Factory } from '../../../../util/test';
 import * as UserMocks from './__mocks__/user';
 
@@ -15,7 +15,7 @@ describe('Use case schema unit tests', () => {
   });
 
   describe('#createUser', () => {
-    it('should accept as a valid juridical user schema', () => {
+    it('should accept as a createUser user schema', () => {
       const params = factory.create<{ user: Partial<User> }>('createUser');
 
       const { error } = createUser.validate(params);
@@ -25,10 +25,10 @@ describe('Use case schema unit tests', () => {
   });
 
   describe('#update', () => {
-    it('should accept as a valid juridical user schema', () => {
+    it('should accept as a update user schema', () => {
       const params = factory.create<{ user: Partial<User> }>('update');
 
-      const { error } = createUser.validate(params);
+      const { error } = update.validate(params);
 
       expect(error).toBeUndefined();
     });

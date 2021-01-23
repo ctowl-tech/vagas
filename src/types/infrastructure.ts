@@ -2,6 +2,7 @@ import knex from 'knex';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { IUserRepository } from './user';
+import { IUserBalanceRepository } from './userBalance';
 
 /* Http Adapter */
 export interface IHttpAdapterConstructs {
@@ -30,6 +31,7 @@ export type MessageContent = unknown;
 /* Infrastructure */
 export type Container = {
   userRepository: IUserRepository;
+  userBalanceRepository: IUserBalanceRepository;
 };
 
 export type ContainerConfig = {

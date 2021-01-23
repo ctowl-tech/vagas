@@ -1,7 +1,7 @@
 # ProvaNode application
 
 <img
-    src="https://i.ibb.co/xMyRbtY/hosy.jpg"
+    src="https://i.ibb.co/0yqsspM/hosy.jpg"
     alt="Swagger Page of that application"
     title="Swagger Page of that application" />
 

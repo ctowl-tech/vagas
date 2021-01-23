@@ -14,6 +14,8 @@ servers:
 tags:
   - name: User
     description: Endpoints de usuários
+  - name: UserBalance
+    description: Endpoints de Saldo de Usuário
 
 paths:
   /user:
@@ -150,6 +152,117 @@ paths:
                     example: "1"
         500:
           $ref: '#/components/responses/InternalServerError'
+  /user-balance/{id}:
+    post:
+      tags:
+        - UserBalance
+      summary: Cria Saldo para usuário
+      parameters:
+      - name: "id"
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "2"
+          description: "Path params"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - balance
+              properties:
+                balance:
+                  type: string
+                  description: saldo do usuário
+                  example: "1000"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                required:
+                  - key
+                properties:
+                  id:
+                    type: string
+                    example: "2"
+        500:
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - UserBalance
+      summary: Desconta saldo de usuário
+      parameters:
+      - name: "id"
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "2"
+          description: "Path params"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - discount
+              properties:
+                discount:
+                  type: string
+                  description: saldo do usuário
+                  example: "999"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                required:
+                  - key
+                properties:
+                  updated:
+                    type: string
+                    example: "1"
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+    get:
+      tags:
+        - UserBalance
+      summary: GetUserById
+      parameters:
+      - name: "id"
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "2"
+          description: "Path params"
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                required:
+                  - key
+                properties:
+                  id:
+                    type: string
+                    example: "eb0a2f54-d5da-4fc6-8abd-aa73d2dcccee"
+                  balance:
+                    type: string
+                    example: "2454"
+                  user_id:
+                    type: string
+                    example: "2"
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/InternalServerError'
 components:
   responses:
     OutOfCuttingTimeError:
@@ -181,6 +294,16 @@ components:
                 description: Detalhes do erro
                 type: array
                 example:
+    BadRequest:
+      description: Erro. valor não pode ser maior que saldo ou userId não encontrado
+      content:
+        application/json:
+          schema:
+            properties:
+              error:
+                description: Detalhes do erro
+                type: string
+                example: Erro. valor não pode ser maior que saldo ou userId não encontrado
     Success:
       description: Successo
       content:

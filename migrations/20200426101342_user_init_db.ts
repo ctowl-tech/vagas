@@ -2,9 +2,9 @@ import * as Knex from 'knex';
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('user', (t) => {
-    t.string('id');
-    t.string('email');
-    t.string('fullName');
+    t.string('id').notNullable();
+    t.string('email').notNullable().unique();
+    t.string('fullName').notNullable();
     t.timestamp('created_at', { useTz: true }).defaultTo(knex.fn.now());
     t.timestamp('updated_at', { useTz: true }).defaultTo(knex.fn.now());;
   });

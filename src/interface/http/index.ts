@@ -5,6 +5,7 @@ import compression from 'compression';
 import express from 'express';
 
 import { UserController } from './controller/user';
+import { UserBalanceController } from './controller/userBalance';
 
 import { validator } from './middleware/validator';
 import { errorHandler } from './middleware/errorHandler';
@@ -65,6 +66,10 @@ export class HttpInterface implements IHttpInterface {
   setupRoutes() {
     [
       new UserController({
+        coreContainer: this.coreContainer,
+        validator,
+      }),
+      new UserBalanceController({
         coreContainer: this.coreContainer,
         validator,
       }),
