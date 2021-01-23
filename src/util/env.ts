@@ -4,7 +4,7 @@ dotenv.config();
 
 const env = {
   /* Http Interface Config */
-  httpPort: parseInt(process.env.HTTP_PORT || '3000', 10),
+  httpPort: parseInt(process.env.HTTP_PORT || '', 10),
   httpBodyLimit: process.env.HTTP_BODY_LIMIT,
   mysqlPort: parseInt(process.env.MYSQL_PORT || '', 10),
   mysqlHost: process.env.MYSQL_HOST || 'us-cdbr-east-03.cleardb.com',
