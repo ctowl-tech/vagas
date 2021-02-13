@@ -1,4 +1,4 @@
-import { IFindUser } from '../../../domain/use-case/find-user'
+import { IFindUser } from '../../../domain/use-case/user/find-user'
 
 export type IFindUserRepository = {
   find:(id:Number)=>Promise<IFindUser.Result>
