@@ -5,14 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "set NODE_ENV=test && jest --runInBand --no-cache",
-    "test:watch": "set NODE_ENV=test && npx jest --passWithNoTests  --noStackTrace --runInBand --no-cache --watch",
-    "test:ci": "set NODE_ENV=test && npm run test -- --coverage",
     "dev": "ts-node-dev --inspect=4321 --respawn --transpile-only src/main/server.ts",
-    "typeorm:test": "set NODE_ENV=test && node --require ts-node/register ./node_modules/typeorm/cli.js",
-    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "postinstall": "rimraf dist && tsc -p tsconfig-build.json",
     "start": "node dist/src/main/server.js"
-
   },
   "keywords": [],
   "author": "",
